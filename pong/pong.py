@@ -56,8 +56,8 @@ class Player(GameSprite):
         if keys[K_DOWN] and self.rect.y < win_height - 100:
             self.rect.y += self.speed
    #метод "выстрел" (используем место игрока, чтобы создать там пулю)
-racket1 = Player("pngegg.png", 40,250,15,100,5)
-racket2 = Player("pngegg.png", 600,250,15,100,5)
+racket1 = Player("pngegg.png", 25,250,15,100,5)
+racket2 = Player("pngegg.png", 660,250,15,100,5)
 ball = GameSprite("ball.png", 300,250,39,39,3)
 #переменная "игра закончилась": как только там True, в основном цикле перестают работать спрайты
 run = True
@@ -91,20 +91,18 @@ while run:
             speed_y*= -1
         if ball.rect.x <0:
             window.blit(lose1,(100,100))
-            goal1 = goal1 +1
+            goal2 +=1
             finish = True
         if ball.rect.x >win_width:
             window.blit(lose2,(100,100))
-            goal2+=1
+            goal1+=1
             
             finish = True
         display.update()
     else:
         
-        ball.rect.x = 300
+        ball.rect.x = 300 
         ball.rect.y = 250
         time.delay(3000)
         finish = False
 
-
-        
